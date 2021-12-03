@@ -1,0 +1,105 @@
+@import "variables";
+
+header {
+  width: 100%;
+  z-index: 999;
+  position: fixed;
+  a,
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+    p {
+      color: $color__secundario;
+      line-height: 1.8rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  ul {
+    padding-left: 0;
+    margin-bottom: 0;
+    li {
+      font-size: 1.2rem;
+      a {
+        color: $color__claro;
+        text-decoration: none;
+        &:hover {
+          font-weight: 600;
+          color: $color__secundario;
+        }
+      }
+    }
+  }
+
+  nav {
+    padding: 0 3%;
+    background-color: $color__claro;
+    img {
+      width: 5rem;
+      margin: 5px 0px 5px 0px;
+    }
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.equiv {
+  font-size: 3rem;
+  color: $color__gris--oscuro;
+
+  &:hover {
+    cursor: pointer;
+    color: $color__secundario;
+  }
+}
+
+.toggle {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 3%;
+  border-radius: 5px;
+  line-height: 2rem;
+  background-color: $color__tenueOscuro;
+}
+
+.hidden {
+  display: none;
+}
+
+
+// R E S P O N S I V E  D E S I G N 
+@media screen and (min-width:900px) {
+  .equiv {
+    display: none;
+  }
+
+  .toggle {
+    position: relative;
+  }
+
+  .hidden {
+    display: inherit;
+  }
+
+  ul {
+    li {
+      font-size: 1.5rem;
+      margin-left: 1.5rem;
+
+      a {
+        color: $color__gris--oscuro !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+//- V A R I A B L E S
+-var titulo = "Escala de inteligencia de Weschler para niños (WISC-IV)"
+-var titlesnav = ["Inicio", "Profesionistas", "Noticias", "Contacto", "Tema"]
+-var profesionistas = ["Todos", "Psicólogos", "Nutriologos", "Ingenieros", "Estilistas", "Jardinería"]
+-var tabla__titulo = ["Mótivos de Consulta", "Tecnologías", "Conocimientos", "Especialidades"]
+-var servicio = ["Servicios", "Proyectos"]
+-var servicio__decripcion = ["Cualquier servicio necesita completa disponibilidad y compromiso por parte del paciente.", "Cualquier servicio necesita completa disponibilidad y compromiso por parte del cliente."]
+
+//- M I X I N 
+//- H O M E P A G E  - H E A H D
+mixin homepage_head(descripcion, sitename, imagen, title)
+	head 
+		meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		meta(name="author" content="carlosArturoMT")
+		meta(http-equiv="X-UA-Compatible" content="ie=edge")
+		meta(name="author" content="carlosArturoMT")
+		meta(name="DC.creator" content="carlosArturoMT")
+		meta(name="copyright" content="carlosArturoMT")
+		meta(name="description"
+			content= descripcion)
+		meta(pproperty="og:site_name" content=sitename)
+		meta(property="og:title" content=sitename)
+		meta(property="og:description"
+			content=descripcion)
+		meta(property="og:image"
+			content=imagen)
+		meta(property="og:image:url"
+			content=imagen)
+		meta(property="og:url" content="https://DeTexcoco.com")
+		meta(property="og:type" content="blog")
+		meta(itemprop="image"
+			content=imagen)
+		meta(name="twitter:image"
+			content=imagen)
+		meta(itemprop="image"
+			content=imagen)
+		link(rrel="image_src"
+			href=imagen)
+		title= title
+		link(rel="preconnect" href="https://fonts.googleapis.com")
+		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+		link(href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet")
+		link(rel="icon" type="image/png" href="../../assets/icons/logo1_Sorbito-Cafe.png")
+		link(rel="stylesheet" href="../../css/sass/dist/styles.css")
+//- H O M E P A G E  - H E A D E R
+mixin header
+	header 
+		nav(x-data="{ open: false }")
+			a(href="index.html"): .flex 
+				img(src="../../assets/icons/Cosciente-Colectivo_200px.png" alt="Logo")
+				p Consciente Colectivo
+			.equiv(@click="open = true") &equiv;
+			.toggle(x-show="open" @click.away="open = false")
+				ul
+					li: a(href="index.html") Inicio
+					li: a(href="#nosotros") Nosotros
+					li: a(href="#servicios") Servicios
+					li: a(href="salarios.html") Eventos
+					li: a(href="#contact") Contacto
+			ul.hidden
+				li: a(href="index.html") Inicio
+				li: a(href="#nosotros") Nosotros
+				li: a(href="#servicios") Servicios
+				li: a(href="#contact") Eventos
+				li: a(href="#contact") Contacto
+
+//- F O R M - D A T E
+mixin form_simple(nombreprof, email)
+	form(action="../../form.php" method="POST")
+		h4 Contáctanos
+		.container-inputs
+			input(type="text" hidden name="profesionista" value=nombreprof)
+			input(type="email" hidden  name="destino1" value=email)
+			label(for="name") Nombre 
+			input(type="text" placeholder="Name" name="nombre" autocomplete="on" required)
+			label(for="email") Email
+			input(type="email" placeholder="Email" name="correo" autocomplete="email")
+			label(for="phone") Teléfono
+			input(type="phone" placeholder="Phone" name="numero" autocomplete="tel" required)
+			label(for="text") Mensaje
+			textarea(cols="45" rows="4" name="mensaje" placeholder="Message" required)
+		input.bttn(type="submit" name="btn-submit" value="Enviar") 
+
+//- B U T T O N - F L O A T
+mixin button_wh(numero)
+	.button__WhatsApp: a(href="https://api.whatsapp.com/send?phone=52"+numero target="_blank" rel="noopener"): img.button__WhatsApp--home(src="https://detexcoco.com/assets/icons/whatsapp.png" alt="boton WhatsApp")
+
+//- C A R D | P R E S E N T A T I O N
+mixin card-presentation(id, img, title, description, detail)
+	figure.presentation.hidden0(id=id)
+		div: img(src=img alt=title)
+		div 
+			h4=title 
+			figcaption=description
+			small=detail 
+
+//- C A R D - G A L L E R Y
+mixin card_gallery(title, url, text)
+	article.container__card
+		aside.container__card--header
+			hgroup
+				h2=title
+				h3=date
+		img.container__card--cover-100(src=url alt="cover")
+		p=text
+
+//- C A R D - G A L L E R Y - S I M P L E
+mixin card_gallery-simple(icon, name, date, text, url, alt)
+	article.container__card100
+		aside.container__card100--header
+			img.container__card100--header-photo.border-radius(src=icon alt="profile photo")
+			hgroup
+				.flex
+					h3=name
+					span= date
+				p=text
+		img.container__card100--cover-100(src=url alt=alt)
+
+//- B U T T O N - F L O A T
+mixin button_wh(numero)
+	.button__WhatsApp.expandUp: a(href="https://api.whatsapp.com/send?phone=52"+numero target="_blank" rel="noopener"): img.button__WhatsApp--home.floating(src="https://detexcoco.com/assets/icons/whatsapp.png", alt="boton WhatsApp")

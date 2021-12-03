@@ -1,0 +1,94 @@
+header {
+  width: 100%;
+  z-index: 999;
+  position: fixed;
+}
+header a,
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  text-decoration: none;
+}
+header a p {
+  color: #a03a5d;
+  line-height: 1.8rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+header ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+header ul li {
+  font-size: 1.2rem;
+}
+header ul li a {
+  color: #FEFEFE;
+  text-decoration: none;
+}
+header ul li a:hover {
+  font-weight: 600;
+  color: #a03a5d;
+}
+header nav {
+  padding: 0 3%;
+  background-color: #FEFEFE;
+}
+header nav img {
+  width: 5rem;
+  margin: 5px 0px 5px 0px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.equiv {
+  font-size: 3rem;
+  color: #222222;
+}
+.equiv:hover {
+  cursor: pointer;
+  color: #a03a5d;
+}
+
+.toggle {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 3%;
+  border-radius: 5px;
+  line-height: 2rem;
+  background-color: #000000b9;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 900px) {
+  .equiv {
+    display: none;
+  }
+
+  .toggle {
+    position: relative;
+  }
+
+  .hidden {
+    display: inherit;
+  }
+
+  ul li {
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+  }
+  ul li a {
+    color: #222222 !important;
+  }
+}

@@ -1,0 +1,62 @@
+@import "variables";
+
+form {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  border: solid 1px $color__oscuro;
+
+  h4 {
+    margin-top: 2.5%;
+    margin-bottom: 0;
+    color: $color__oscuro;
+  }
+
+  .container-inputs {
+    justify-content: flex-start;
+    text-align: left;
+    padding: 0 5% 2.5% 5%;
+
+    label {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 1px;
+      color: $color__oscuro;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 5px;
+      border: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      background-color: rgba(28, 28, 37, 0.158);
+      &:focus {
+        outline: none;
+        box-shadow: $color__terciario 0 0 4px;
+      }
+    }
+  }
+
+  .bttn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 2.2rem;
+    padding: 0 2.5%;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin: 0 5% 2.5% 5%;
+    color: $color__oscuro;
+    border: $color__oscuro 0.5px solid;
+    &:hover {
+      cursor: pointer;
+      position: relative;
+      color: $color__claro;
+      background-color: $color__oscuro;
+    }
+  }
+}

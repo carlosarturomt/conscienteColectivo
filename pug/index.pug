@@ -1,0 +1,71 @@
+extend components/template.pug
+block contenidos
+  +header 
+  main 
+    //- - - - - C A R O U S E L - B O O T S T R A P - - - - -
+    .carousel.slide#carouselExampleCaptions(data-bs-ride="carousel")
+      .carousel-indicators
+        button(type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1")
+        button(type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2")
+        button(type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3")
+
+      .carousel-inner
+        .carousel-item.active
+          img.d-block.cover-80(src="../../assets/imgs/background/psychology-production.jpg" alt="Abrazo familiar en terapia")
+          .carousel-caption.d-md-block
+            h5 Psicoterapia
+            p Trabajamos para la salud mental, desde la psicología y la promoción de la cultura.
+
+        .carousel-item
+          img.d-block.cover-80(src="../../assets/imgs/background/women-yoga.jpg" alt="Grupo de personas en armonía")
+          .carousel-caption.d-md-block
+            h5 Actividades Culturales
+            p Promovemos el arte y emprendimiento de los jóvenes.
+
+        .carousel-item
+          img.d-block.cover-80(src="../../assets/imgs/background/yoga-stand-in.jpg" alt="Mujer haciendo yoga")
+          .carousel-caption.d-md-block
+            h5 Espacio de Calma
+            p Fomentamos el bienestar psicosocial.
+
+      button.carousel-control-prev(type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev")
+        span.carousel-control-prev-icon(aria-hidden="true")
+        span.visually-hidden Previous
+
+      button.carousel-control-next(type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next")
+        span.carousel-control-next-icon(aria-hidden="true")
+        span.visually-hidden Next 
+
+    //- - - - - C A R D S - P R E S E N T A T I O N - - - - -
+    section#nosotros: article: aside 
+      +card-presentation('fadeIn0','https://detexcoco.com/profesionistas/assets/imgs/psicologos/carlosarturomt.jpg', 'Carlos Miranda Trujano', 'Psicólogo', 'Maestro en Educación')
+      +card-presentation('fadeIn1','https://detexcoco.com/profesionistas/assets/imgs/psicologos/altagracia-colorado-diaz.jpg', 'Altagracia Colorado', 'Psicoterapeuta', 'Maestra en Psicoterapia Psicoanalítica')
+      +card-presentation('fadeIn2','https://detexcoco.com/profesionistas/assets/imgs/psicologos/wilson-martinez-galicia.jpeg', 'Wilson Martínez Galicia', 'Psicólogo', 'Licenciado en Psicología')
+
+    section: article.flex 
+      aside.flex: img.opacity-05(src="../../assets/imgs/background/psychology_consciente.jpg" alt="Consultorio de consciente colectivo")
+      hgroup.width-50
+        h4 Sobre nosotros
+        p Somos un grupo de personas amantes de nuestra profesión, entusiastas de que más personas se ocupen de sus mentes saludables. Creemos firmemente en las bondades de mantener una vida de bienestar.
+
+    section: article: img.cover-middle(src="../../assets/imgs/background/pexels-creation.jpg" alt="representación de la creación de adán, de Miguel Ángel")
+
+    section#servicios: article.flex 
+      hgroup.width-60
+        h4 Nuestros servicios
+        p En Consciente Colectivo nos preocupamos por la salud mental, por lo que contamos con Psicoterapia individual, Psicoterapia de pareja, Psicoterapia de familia, Psicometría...
+        a(href="#servicios") Ver más
+      aside.flex: img.opacity-06(src="../../assets/imgs/background/pexels-education.jpg" alt="Aplicación de test a un niño")
+
+    section: article: img#fadeIn3.hidden0.cover-buy( src="../../assets/imgs/grupo_adolescentes.png" alt="Grupo de adolescentes en vector")
+
+    //- - - - - M A P - F O R M - - - - - 
+    section#contact: article.flex1
+      aside.flex1__aside
+        h4 Dirección
+        iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d940.1813352330511!2d-98.8804663!3d19.5104491!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e7b350eeaaab%3A0x42c02f89b3a284e9!2sConsciente%20Colectivo!5e0!3m2!1sen!2smx!4v1633723692101!5m2!1sen!2smx" allowfullscreen="" loading="lazy" title="Mapa de GoogleMaps para llegar a Consciente Colectivo")
+      aside.flex1__aside
+        +form_simple('Consciente Colectivo', 'carlosarturomt@gmail.com')
+
+      //- B U T T O N - F L O A T
+      +button_wh('5514030520')

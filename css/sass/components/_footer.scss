@@ -20,9 +20,14 @@ footer {
           margin-bottom: 2%;
       }
       a {
+        text-decoration: none;
+        color: $color__claro;
         img {
           width: 2rem;
           margin-right: 2rem;
+        }
+        &:hover {
+          color: $color__secundario;
         }
       }
     }

@@ -19,9 +19,16 @@ footer section aside img {
   width: 30%;
   margin-bottom: 2%;
 }
+footer section aside a {
+  text-decoration: none;
+  color: #FEFEFE;
+}
 footer section aside a img {
   width: 2rem;
   margin-right: 2rem;
+}
+footer section aside a:hover {
+  color: #a03a5d;
 }
 footer section small a {
   color: #FEFEFE;

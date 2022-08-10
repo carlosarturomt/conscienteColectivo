@@ -1,0 +1,252 @@
+<?php
+require("mail.php");
+
+function validate($name, $email, $phone, $message, $form)
+{
+  return !empty($name) && !empty($email) && !empty($phone) && !empty($message);
+}
+
+$status = "";
+
+if (isset($_POST["form"])) {
+
+  if (validate(...$_POST)) {
+
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $message = $_POST["message"];
+
+    $body = "$name <$email> send you the next message: <br><br> $message <br><br> Phone: $phone <br><br> Email: $email <br><br> Good luck, I hope that you will can to work with he or she 😀";
+
+    // Send email
+    sendMail($phone, $body, $email, $name, true);
+
+    $status = "success";
+  } else {
+    $status = "danger";
+  }
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="CarlosArturoMT" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="author" content="CarlosArturoMT" />
+  <meta name="DC.creator" content="CarlosArturoMT" />
+  <meta name="copyright" content="CarlosArturoMT" />
+  <meta name="description" content="En Consciente Colectivo, trabajamos para la salud mental, desde la psicología y la promoción de la cultura." />
+  <meta pproperty="og:site_name" content="Consciente Colectivo" />
+  <meta property="og:title" content="Consciente Colectivo | Psicología" />
+  <meta property="og:description" content="En Consciente Colectivo, trabajamos para la salud mental, desde la psicología y la promoción de la cultura." />
+  <meta property="og:url" content="https://conscientecolectivo.com" />
+  <meta property="og:type" content="blog" />
+  <meta property="og:image" content="https://conscientecolectivo.detexcoco.com/assets/imgs/background/conscienteColectivo.jpg" />
+  <meta property="og:image:url" content="https://conscientecolectivo.detexcoco.com/assets/imgs/background/conscienteColectivo.jpg" />
+  <meta itemprop="image" content="https://conscientecolectivo.detexcoco.com/assets/imgs/background/conscienteColectivo.jpg" />
+  <meta name="twitter:image" content="https://conscientecolectivo.detexcoco.com/assets/imgs/background/conscienteColectivo.jpg" />
+  <meta itemprop="image" content="https://conscientecolectivo.detexcoco.com/assets/imgs/background/conscienteColectivo.jpg" />
+  <link rel="image_src" href="https://conscientecolectivo.detexcoco.com/assets/imgs/background/conscienteColectivo.jpg" />
+  <title>Consciente Colectivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/icons/logo_Cosciente-Colectivo_redondo_100px.png" />
+  <link rel="stylesheet" href="css/sass/styles.css" />
+  <link rel="stylesheet" href="css/sass/dist/animaciones.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+</head>
+
+<body>
+  <header>
+    <nav x-data="{ open: false }"><a href="index.html">
+        <div class="flex"> <img src="assets/icons/Cosciente-Colectivo_200px.png" alt="Logo" />
+          <p>Consciente Colectivo</p>
+        </div>
+      </a>
+      <div class="equiv" @click="open = true">&equiv;</div>
+      <div class="toggle" x-show="open" @click.away="open = false">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="salarios.html">Eventos</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </div>
+      <ul class="hidden">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contact">Eventos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="carousel slide" id="carouselExampleCaptions" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button class="active" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active"><img class="d-block cover-80" src="assets/imgs/background/psychology-production.jpg" alt="Abrazo familiar en terapia" />
+          <div class="carousel-caption d-md-block">
+            <h5>Psicoterapia</h5>
+            <p>Trabajamos para la salud mental, desde la psicología y la promoción de la cultura.</p>
+          </div>
+        </div>
+        <div class="carousel-item"><img class="d-block cover-80" src="assets/imgs/background/women-yoga.jpg" alt="Grupo de personas en armonía" />
+          <div class="carousel-caption d-md-block">
+            <h5>Actividades Culturales</h5>
+            <p>Promovemos el arte y emprendimiento de los jóvenes.</p>
+          </div>
+        </div>
+        <div class="carousel-item"><img class="d-block cover-80" src="assets/imgs/background/yoga-stand-in.jpg" alt="Mujer haciendo yoga" />
+          <div class="carousel-caption d-md-block">
+            <h5>Espacio de Calma</h5>
+            <p>Fomentamos el bienestar psicosocial.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next </span></button>
+    </div>
+    <section id="nosotros">
+      <article>
+        <aside>
+          <figure class="presentation hidden0" id="fadeIn0">
+            <div><img src="https://detexcoco.com/profesionistas/assets/imgs/psicologos/carlosarturomt.jpg" alt="Carlos Miranda Trujano" /></div>
+            <div>
+              <h4>Carlos Miranda Trujano</h4>
+              <figcaption>Psicólogo</figcaption><small>Maestro en Educación</small>
+            </div>
+          </figure>
+          <figure class="presentation hidden0" id="fadeIn1">
+            <div><img src="https://detexcoco.com/profesionistas/assets/imgs/psicologos/altagracia-colorado-diaz.jpg" alt="Altagracia Colorado" /></div>
+            <div>
+              <h4>Altagracia Colorado</h4>
+              <figcaption>Psicoterapeuta</figcaption><small>Maestra en Psicoterapia Psicoanalítica</small>
+            </div>
+          </figure>
+          <figure class="presentation hidden0" id="fadeIn2">
+            <div><img src="https://detexcoco.com/profesionistas/assets/imgs/psicologos/wilson-martinez-galicia.jpeg" alt="Wilson Martínez Galicia" /></div>
+            <div>
+              <h4>Wilson Martínez Galicia</h4>
+              <figcaption>Psicólogo</figcaption><small>Licenciado en Psicología</small>
+            </div>
+          </figure>
+        </aside>
+      </article>
+    </section>
+    <section>
+      <article class="flex">
+        <aside class="flex"><img class="opacity-05" src="assets/imgs/background/psychology_consciente.jpg" alt="Consultorio de consciente colectivo" /></aside>
+        <hgroup class="width-50">
+          <h4>Sobre nosotros</h4>
+          <p>Somos un grupo de personas amantes de nuestra profesión, entusiastas de que más personas se ocupen de sus mentes saludables. Creemos firmemente en las bondades de mantener una vida de bienestar.</p>
+        </hgroup>
+      </article>
+    </section>
+    <section>
+      <article><img class="cover-middle" src="assets/imgs/background/pexels-creation.jpg" alt="representación de la creación de adán, de Miguel Ángel" /></article>
+    </section>
+    <section id="servicios">
+      <article class="flex">
+        <hgroup class="width-60">
+          <h4>Nuestros servicios</h4>
+          <p>En Consciente Colectivo nos preocupamos por la salud mental, por lo que contamos con Psicoterapia individual, Psicoterapia de pareja, Psicoterapia de familia, Psicometría...</p><a href="#servicios">Ver más</a>
+        </hgroup>
+        <aside class="flex"><img class="opacity-06" src="assets/imgs/background/pexels-education.jpg" alt="Aplicación de test a un niño" /></aside>
+      </article>
+    </section>
+    <section>
+      <article><img class="hidden0 cover-buy" id="fadeIn3" src="assets/imgs/grupo_adolescentes.png" alt="Grupo de adolescentes en vector" /></article>
+    </section>
+    <section id="contact">
+      <article class="flex1">
+        <aside class="flex1__aside">
+          <h4>Dirección</h4>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d940.1813352330511!2d-98.8804663!3d19.5104491!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e7b350eeaaab%3A0x42c02f89b3a284e9!2sConsciente%20Colectivo!5e0!3m2!1sen!2smx!4v1633723692101!5m2!1sen!2smx" allowfullscreen="" loading="lazy" title="Mapa de GoogleMaps para llegar a Consciente Colectivo"></iframe>
+        </aside>
+        <aside class="flex1__aside">
+
+          <?php if ($status == "danger") : ?>
+            <div class="alert danger">
+              <span>We have problems</span>
+            </div>
+          <?php endif; ?>
+
+          <?php if ($status == "success") : ?>
+            <div class="alert success">
+              <span>Message sent!</span>
+            </div>
+          <?php endif; ?>
+
+          <form action="./" method="POST">
+            <form action="./" method="POST">
+              <h4>Contáctanos</h4>
+              <div class="container-inputs">
+                <!-- <input type="text" hidden="hidden" name="profesionista" value="Consciente Colectivo" />
+              <input type="email" hidden="hidden" name="destino1" value="carlosarturomt@gmail.com" /> -->
+
+                <label for="name">Nombre:</label>
+                <input type="text" placeholder="Name" name="name" id="name" autocomplete="on" required="required" />
+
+                <label for="email">Email:</label>
+                <input type="email" placeholder="Email" name="email" id="email" autocomplete="email" />
+
+                <label for="phone">Teléfono:</label>
+                <input type="phone" placeholder="Phone" name="phone" id="phone" autocomplete="tel" required="required" />
+
+                <label for="message">Mensaje:</label>
+                <textarea cols="45" rows="4" name="message" id="message" placeholder="Message" required="required"></textarea>
+              </div>
+              <input class="bttn" name="form" type="submit" name="btn-submit" value="Enviar" />
+            </form>
+        </aside>
+        <div class="button__WhatsApp expandUp"><a href="https://api.whatsapp.com/send?phone=525542646846" target="_blank" rel="noopener"><img class="button__WhatsApp--home floating" src="https://detexcoco.com/assets/icons/whatsapp.png" alt="boton WhatsApp" /></a></div>
+      </article>
+    </section>
+  </main>
+  <footer>
+    <section>
+      <aside> <img src="assets/icons/logo_Cosciente-Colectivo_redondo_200px.png" alt="logo completo de Sorbito Café" />
+        <p>Puedes encontrarnos en Texcoco, Estado de México.</p>
+        <p>Creemos firmemente en las bondades de mantener una vida de bienestar.</p>
+        <p><a href="https://g.page/r/CemEorOJL8BCEAI/review" target="_blank">Danos tú opinión.</a></p>
+      </aside>
+      <aside>
+        <p>Síguenos en nuestras redes sociales</p><a href="https://www.doctoralia.com.mx/altagracia-colorado-diaz/psicologo/texcoco" target="_blank" rel="noopener noreferrer">
+          <svg width="2.1rem" height="2.1rem" viewBox="0 0 31 29" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin-top: -10px;">
+            <defs>
+              <path d="M16.973 23.49c.729-1.788 2.781-4.29 4.873-5.581l4.633 7.666-4.746 3.448-4.761-5.533zm-6.844 5.525l-6.533-4.202c4.946-9.245 14.188-15.828 25.05-17.055l1.819 5.605c-8.953 1.764-16.425 7.673-20.337 15.652zm1.426-19.028l.826-9.815h5.868l.746 8.876c-3.367 1.155-5.347 2.077-7.616 3.472-1.675 1.027-3.198 2.229-4.561 3.607l-6.645-2.805 1.811-5.589 9.571 2.254z" id="a"></path>
+            </defs>
+            <g transform="translate(-114 -10) translate(114 10)" fill="none">
+              <mask>
+                <use xlink:href="#a"></use>
+              </mask>
+              <use fill="#fff" xlink:href="#a"> </use>
+            </g>
+          </svg></a><a href="https://www.facebook.com/consciencecolectiva/" target="_blank" rel="noopener noreferrer" style="margin-left:2rem;"><img src="assets/icons/twitter.png" alt="logo twitter" /></a><a href="https://www.facebook.com/consciencecolectiva/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/facebook.png" alt="logo facebook" /></a><a href="https://www.instagram.com/sorbito_cafe/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/instagram.png" alt="logo instagram" /></a>
+      </aside>
+    </section>
+    <section>
+      <h5><span>&copy</span><span>2021 </span><span> ConscienteColectivo</span></h5><small>Desarrollo por<a href="https://detexcoco.com/profesionistas/otros/mexico/carlos-arturo-miranda-trujano"> CarlosArturoMT</a></small>
+    </section>
+  </footer>
+</body>
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" rossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/animaciones.js"></script>
+
+</html>

@@ -1,0 +1,736 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html main {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  overflow: scroll;
+  overflow-x: hidden;
+  transition: 0.9s ease all;
+  background: #ececec;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #222222;
+}
+
+input:focus {
+  outline: none;
+}
+
+hgroup {
+  margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: #110107;
+}
+
+h2 {
+  font-size: 1.75rem;
+  text-align: center;
+  color: #1a020e;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #4d4d4d;
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 1.35rem;
+  color: #110107;
+}
+
+header {
+  width: 100%;
+  z-index: 999;
+  position: fixed;
+}
+header a,
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  text-decoration: none;
+}
+header a p {
+  color: #a03a5d;
+  line-height: 1.8rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+header ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+header ul li {
+  font-size: 1.2rem;
+}
+header ul li a {
+  color: #FEFEFE;
+  text-decoration: none;
+}
+header ul li a:hover {
+  font-weight: 600;
+  color: #a03a5d;
+}
+header nav {
+  padding: 0 3%;
+  background-color: #FEFEFE;
+}
+header nav img {
+  width: 5rem;
+  margin: 5px 0px 5px 0px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.equiv {
+  font-size: 3rem;
+  color: #222222;
+}
+.equiv:hover {
+  cursor: pointer;
+  color: #a03a5d;
+}
+
+.toggle {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 3%;
+  border-radius: 5px;
+  line-height: 2rem;
+  background-color: rgba(0, 0, 0, 0.7254901961);
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 900px) {
+  .equiv {
+    display: none;
+  }
+  .toggle {
+    position: relative;
+  }
+  .hidden {
+    display: inherit;
+  }
+  ul li {
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+  }
+  ul li a {
+    color: #222222 !important;
+  }
+}
+footer {
+  width: 100%;
+  padding: 1% 0;
+  font-size: 1rem;
+  color: #FEFEFE;
+  background-color: #222222;
+}
+footer section {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+footer section:last-child {
+  text-align: center;
+}
+footer section aside {
+  padding: 0 5%;
+}
+footer section aside img {
+  width: 30%;
+  margin-bottom: 2%;
+}
+footer section aside a {
+  text-decoration: none;
+  color: #FEFEFE;
+}
+footer section aside a img {
+  width: 2rem;
+  margin-right: 2rem;
+}
+footer section aside a:hover {
+  color: #a03a5d;
+}
+footer section small a {
+  color: #FEFEFE;
+  text-decoration: none;
+}
+footer section small a:hover {
+  color: #a03a5d;
+  -webkit-text-decoration: wavy;
+          text-decoration: wavy;
+}
+
+@media screen and (min-width: 600px) {
+  footer {
+    padding: 2.5% 0;
+  }
+  footer section {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  footer section:first-child {
+    display: flex;
+  }
+  footer section aside {
+    width: 50%;
+    padding: 0 5%;
+  }
+  footer section aside img {
+    width: 25%;
+  }
+  footer section aside a img {
+    width: 2rem;
+    margin-right: 2rem;
+  }
+}
+.flex1 {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 10% 2.5% 10%;
+}
+.flex1__aside {
+  width: 100%;
+  height: 100%;
+  padding: 2.5%;
+  text-align: center;
+}
+.flex1__aside h4 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 750px) {
+  .flex1 {
+    width: 95%;
+    flex-wrap: nowrap;
+    margin: 0 2.5% 2.5% 2.5%;
+  }
+}
+form {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  border: solid 1px #110107;
+}
+form h4 {
+  margin-top: 2.5%;
+  margin-bottom: 0;
+  color: #110107;
+}
+form .container-inputs {
+  justify-content: flex-start;
+  text-align: left;
+  padding: 0 5% 2.5% 5%;
+}
+form .container-inputs label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 1px;
+  color: #110107;
+}
+form .container-inputs input,
+form .container-inputs textarea {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: rgba(28, 28, 37, 0.158);
+}
+form .container-inputs input:focus,
+form .container-inputs textarea:focus {
+  outline: none;
+  box-shadow: #4d4d4d 0 0 4px;
+}
+form .bttn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 2.2rem;
+  padding: 0 2.5%;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin: 0 5% 2.5% 5%;
+  color: #110107;
+  border: #110107 0.5px solid;
+}
+form .bttn:hover {
+  cursor: pointer;
+  position: relative;
+  color: #FEFEFE;
+  background-color: #110107;
+}
+
+main section article {
+  width: 100%;
+}
+main section article img {
+  width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+main section article img.cover-middle {
+  height: 30vh;
+  opacity: 0.9;
+}
+main section article img.cover-buy {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10%;
+}
+main section article aside {
+  width: 100%;
+}
+main section article aside iframe {
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+  border: solid 1px #1a020e;
+}
+main section article aside img {
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+main section article aside img.opacity-05 {
+  width: 100%;
+  height: 60vh;
+  opacity: 0;
+}
+main section article aside img.opacity-06 {
+  width: 100%;
+  height: 60vh;
+  opacity: 0;
+}
+main section article aside figure {
+  width: 70%;
+  padding: 5%;
+  margin-top: 2%;
+  margin-left: 15%;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  box-shadow: #110107 0px 2px 5px;
+}
+main section article aside figure div {
+  width: 100%;
+  margin-left: 0%;
+}
+main section article aside figure div a {
+  width: 100%;
+}
+main section article aside figure div img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+main section article aside figure div h3 {
+  margin: 5% 0 1% 0;
+}
+main section article aside figure div figcaption {
+  font-size: 1rem;
+  margin: 0 0 2% 0;
+}
+main section article aside figure div p {
+  font-size: 1rem;
+  color: #1a020e;
+}
+main section article aside figure div .jamaica {
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/imgs/background/jamaica.jpg");
+}
+main section article aside figure div .mangos {
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/imgs/background/mangos.jpg");
+}
+main section article aside figure div .granos {
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/imgs/background/granos.jpg");
+}
+main section article aside figure div .miel {
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/imgs/background/miel.jpg");
+}
+main section article aside figure div .ponche {
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/imgs/background/ponche.jpg");
+}
+main section article aside figure div .burbujas {
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/imgs/background/burbujas.jpg");
+}
+main section article aside figure.presentation {
+  width: 80%;
+  margin-top: 12.5%;
+  margin-left: 10%;
+  margin-bottom: 12.5%;
+  border-radius: 10px;
+  display: block;
+  min-width: 50px;
+  padding: 0;
+  box-shadow: none;
+}
+main section article aside figure.presentation div {
+  margin: 0;
+}
+main section article aside figure.presentation div img {
+  width: 70%;
+  height: auto;
+  margin: 0 15% 10px 15%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+main section article aside figure.presentation div h4 {
+  text-align: center;
+}
+main section article aside figure.presentation div figcaption {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #a03a5d;
+}
+main section article aside figure.presentation div small {
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+}
+main section article hgroup {
+  text-align: center;
+}
+main section article hgroup.width-50 {
+  position: absolute;
+  width: 90%;
+  margin: 5%;
+  padding: 5%;
+}
+main section article hgroup.width-60 {
+  position: absolute;
+  width: 90%;
+  margin: 5%;
+  padding: 5%;
+  padding-right: 0;
+  z-index: 1;
+  color: #110107;
+}
+main section article hgroup.width-60 a {
+  border: #110107 1px solid;
+  font-size: 1.2rem;
+  color: #1a020e;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+main section article hgroup.width-60 a:hover {
+  background-color: #a03a5d;
+  color: #FEFEFE;
+}
+main section article hgroup h4 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+main section article hgroup p {
+  font-size: 1.2rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 2.5rem;
+  padding: 0 2.5%;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin: 1.5% 0 5% 15%;
+  border: #1a020e 0.5px solid;
+}
+.button:hover {
+  cursor: pointer;
+  position: relative;
+  color: #4d4d4d;
+  border: #4d4d4d 0.5px solid;
+}
+
+.top-5 {
+  margin-top: 15%;
+}
+
+.trolley {
+  background-image: url("../../../assets/icons/trolley.png");
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.trolley:hover {
+  cursor: pointer;
+  background-image: url("../../../assets/icons/trolley-green.png");
+}
+
+.flex-absolute {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: auto;
+  height: 300px;
+  transform: scale(0.7);
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-name: slidein;
+          animation-name: slidein;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+.cover-80 {
+  width: 100%;
+  height: 90vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: drop-shadow(2px 4px 6px black) brightness(0.5);
+}
+
+div p {
+  font-size: 1rem;
+}
+
+.button__WhatsApp {
+  display: block;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border-radius: 50%;
+  line-height: 80px;
+  text-align: center;
+  z-index: 10;
+}
+.button__WhatsApp--home {
+  width: 100%;
+  height: 100%;
+}
+
+.alert {
+  font-size: 2rem;
+}
+
+.danger {
+  background-color: red;
+}
+
+.success {
+  background-color: #49B675;
+}
+
+.slidein {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-name: slidein;
+          animation-name: slidein;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    width: 300%;
+    margin-left: 100%;
+  }
+  to {
+    width: 100%;
+    margin-left: 0%;
+  }
+}
+
+@keyframes slidein {
+  from {
+    width: 300%;
+    margin-left: 100%;
+  }
+  to {
+    width: 100%;
+    margin-left: 0%;
+  }
+}
+@media screen and (min-width: 750px) {
+  main section article img {
+    height: 85vh;
+  }
+  main section article img.cover-middle {
+    height: 80vh;
+  }
+  main section article img.cover-buy {
+    width: 50%;
+    margin: 0 25%;
+  }
+  main section article aside {
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  main section article aside img.opacity-05 {
+    margin: 10% auto;
+    margin-left: 10%;
+    width: 80%;
+    height: 50vh;
+    opacity: 1;
+  }
+  main section article aside img.opacity-06 {
+    margin: 10% auto;
+    margin-left: 5%;
+    width: 80%;
+    height: 50vh;
+    opacity: 1;
+  }
+  main section article aside figure {
+    width: 46%;
+    padding: 0px;
+    display: flex;
+    box-shadow: none;
+    min-width: 300px;
+    margin-left: 2.5%;
+    margin-bottom: 0.5%;
+  }
+  main section article aside figure div {
+    margin-left: 2%;
+  }
+  main section article aside figure.presentation {
+    width: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  main section article hgroup.width-50 {
+    width: 50%;
+    padding: 0;
+    margin: 0 5% 0 0;
+    position: relative;
+    text-align: left;
+  }
+  main section article hgroup.width-60 {
+    width: 50%;
+    padding: 0;
+    margin: 0 3% 0 2%;
+    position: relative;
+    text-align: right;
+  }
+  .flex-absolute {
+    height: 85vh;
+  }
+  .button {
+    width: auto;
+    margin: 1.5% 0 5% 3.3%;
+  }
+  .top-5 {
+    margin-top: 5%;
+  }
+  .cover-80 {
+    height: 90vh;
+  }
+}
+@media screen and (min-width: 1300px) {
+  main section article aside figure {
+    width: 46%;
+  }
+  main section article aside figure div img {
+    height: 175px;
+  }
+}/*# sourceMappingURL=styles.css.map */

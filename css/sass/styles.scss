@@ -318,6 +318,18 @@ div {
 	}
 }
 
+.alert {
+  font-size: 2rem;
+}
+
+.danger {
+  background-color: red;
+}
+
+.success {
+  background-color: #49B675;
+}
+
 // A N I M A T I O N S
 .slidein {
   animation-duration: 1s;
